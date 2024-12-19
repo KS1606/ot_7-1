@@ -10,7 +10,7 @@ on:
 
 jobs:
     checkstyle:
-        run-on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Download code
               uses: actions/checkout@v2
