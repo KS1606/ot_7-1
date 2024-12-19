@@ -1,0 +1,28 @@
+name: Check Style Code
+
+on:
+    push:
+        branches:
+            - new_vetochka
+    pull_request:
+        branches:
+            - new_vetochka
+
+jobs:
+    checkstyle:
+        run-on: ubuntu-latest
+        steps:
+            - name: Download code
+              uses: actions/checkout@v2
+
+            - name: Set version python
+              uses: actions/setup-python@v2
+              with:
+                  python-version:'3.11.4'
+
+            - name: Install dependencies
+                run: |
+                    pip install flake8
+            - name: Run linter
+              run: |
+                  flake8 .
